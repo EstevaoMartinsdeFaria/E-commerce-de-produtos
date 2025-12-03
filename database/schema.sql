@@ -87,12 +87,12 @@ INSERT INTO produtos (produto, preco, marca, categoria, estoque)VALUES
 ('Jogo de Facas de Cozinha',99.99, 'Tramontina', 'Cozinha', 23),
 ('Sabonete',8.90, 'Natura', 'Higiene Pessoal', 55),
 ('Gtx 1050ti', 899.99, 'Nvidia', 'eletronico', 19);
-SELECT * FROM produtos;
-SELECT * FROM produtos WHERE id_produto = 2;
-SELECT * FROM produtos WHERE produto LIKE '%4090%';
-SELECT * FROM produtos WHERE preco < 1000 AND marca = 'Nvidia';
-SELECT * FROM produtos ORDER BY preco ASC;
-SELECT * FROM produtos ORDER BY preco DESC;
+SELECT * FROM produtos; -- lista todas as colunas, * = todos
+SELECT * FROM produtos WHERE id_produto = 2; -- lista todos as colunas de produtos a onde o id_produto é igual a 2
+SELECT * FROM produtos WHERE produto LIKE '%4090%'; -- lista todas as tabelas quando alguma parte de 'produtos' tiver uma parte da palavra digitada entre %...%
+SELECT * FROM produtos WHERE preco < 1000 AND marca = 'Nvidia'; -- Select com condição dupla
+SELECT * FROM produtos ORDER BY preco ASC; -- lista tudas as colunas em ordem crescente do valor da coluna 'preco'
+SELECT * FROM produtos ORDER BY preco DESC; -- faz a mesma coisa so que em ordem decrecente
 -- injeção de valores
 INSERT INTO cep (numero_casa, rua, bairro, municipio, estado)VALUES -- os valores tem que ser colocados na ordem que voce colocou as colunas
 (182, 'Geraldo Cardoso', 'Xerem', 'Duque de Caxias', 'Rio de Janeiro'), -- valores decimais ou int sao colocados sem aspas, valores varchar sao colocados com aspas
@@ -102,8 +102,8 @@ INSERT INTO cep (numero_casa, rua, bairro, municipio, estado)VALUES -- os valore
 (434,'Rua dos Fartos','Aviario','Petrópolis','Rio de Janeiro'),
 (67,'Rua do Morteiro','Amapá','Belford Roxo','Rio de Janeiro'),
 (340,'Avenida da Liberdade','Liberdade','São Paulo','São Paulo');
-SELECT * FROM cep; -- seleciona todos de cep, * = todos
-SELECT * FROM cep WHERE estado = 'Rio de Janeiro'; -- seleciona todos de cep apenas quando o estado é igual a 'rio de janeiro'
+SELECT * FROM cep;
+SELECT * FROM cep WHERE estado = 'Rio de Janeiro'; 
 
 INSERT INTO clientes (nome, email, senha, endereco)VALUES
 ('Estevão Martins','estevaoM@gmail.com','senha123', 1),
@@ -114,7 +114,7 @@ INSERT INTO clientes (nome, email, senha, endereco)VALUES
 ('Andrew Quaresma', 'moryx@gmail.com','xbesta123', 6),
 ('Moises Henrique', 'mois3s@gmail.com', 'chmod777', 7);
 SELECT * FROM clientes;
-SELECT * FROM clientes WHERE nome LIKE '%Kaua%'; -- seleciona todos de cleintes quando alguma parte do nome de alguem tiver uma parte da palavra digitada entre %...%
+SELECT * FROM clientes WHERE nome LIKE '%Kaua%';
 SELECT * FROM clientes WHERE email = 'mois3s@gmail.com';
 
 INSERT INTO pedidos (id_cliente, status)VALUES
@@ -137,7 +137,7 @@ INSERT INTO pedidos_produtos (id_pedido, id_produto, quantidade) VALUES
 (6, 1, 1),
 (7, 3, 1);
 SELECT * FROM pedidos_produtos;
-SELECT * FROM pedidos_produtos WHERE quantidade > 1; -- imprime todas as colunas de pedidos_produtos que a quantidade forem maiores que 1 
+SELECT * FROM pedidos_produtos WHERE quantidade > 1; -- lista todas as colunas de pedidos_produtos que a quantidade forem maiores que 1 
 
 
 INSERT INTO avaliacoes (data_comentario, id_cliente, id_produto, estrelas, comentario)VALUES
